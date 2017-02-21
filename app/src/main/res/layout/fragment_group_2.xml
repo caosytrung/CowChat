@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rvGC"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:padding="152dp"
+        android:visibility="gone"
+        android:id="@+id/prgGC2"
+        />
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="64dp"
+        android:layout_marginRight="64dp"
+        android:src="@drawable/add_group"
+        android:id="@+id/ivAddGroup"
+        android:elevation="@dimen/rippleRadius"
+        />
+</RelativeLayout>

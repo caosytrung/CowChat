@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:id="@+id/ivItemrCall" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="4"
+        android:textColor="@color/blackLight"
+        android:text="Name user"
+        android:lines="1"
+        android:textSize="17dp"
+        android:id="@+id/tvNameItemCall"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="dm"
+        android:layout_gravity="center"
+        android:layout_marginRight="16dp"
+        android:textColor="@color/blueDarck"
+        android:textSize="20dp"
+        android:padding="4dp"
+        android:id="@+id/tvItemCall"
+        />
+
+</LinearLayout>

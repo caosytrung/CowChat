@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "764757496531",
+    "firebase_url": "https://cowchat-e1496.firebaseio.com",
+    "project_id": "cowchat-e1496",
+    "storage_bucket": "cowchat-e1496.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764757496531:android:443008dc16fa811c",
+        "android_client_info": {
+          "package_name": "com.example.mammam.cowchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764757496531-i4duc8oa1hphmtmgh0nlnpuipv2t1ju5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbhr76qmhZxAIBGwfH2yb0KVeEhpWk6o4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

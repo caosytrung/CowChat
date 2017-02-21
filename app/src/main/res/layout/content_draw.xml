@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=
+        "com.example.mammam.cowchat.ui.activity.WelcomActivity">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/blue"
+        android:paddingTop="10dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/tvOpenDraw"
+            android:text="cc"
+            android:layout_marginLeft="8dp"
+            android:padding="4dp"
+            android:textSize="20dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:id="@+id/tvSearchMain"
+            android:text="cc"
+            android:layout_marginLeft="286dp"
+            android:padding="4dp"
+            android:textSize="20dp" />
+
+    </TableRow>
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/tabHead"
+        android:background="@color/blue"
+        ></android.support.design.widget.TabLayout>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vpgMain"
+        ></android.support.v4.view.ViewPager>
+</LinearLayout>

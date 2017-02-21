@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp"
+    >
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginLeft="8dp"
+            >
+            <com.example.mammam.cowchat.ui.custom.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/ivItemSearch"
+                android:scaleType="centerCrop"
+                />
+            <ProgressBar
+                android:id="@+id/progressLoadAvatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="24dp"
+            android:gravity="center_vertical"            >
+
+            <TextView
+                android:lines="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name Friend"
+
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:id="@+id/tvItemFullName"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:id="@+id/tvItemDes"
+                android:text="Description"
+                android:textColor="@color/colorAccent"
+                />
+        </LinearLayout>
+    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Gmail Friend"
+        android:layout_marginTop="2dp"
+        android:id="@+id/tvItemSearch"
+        />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="146dp"
+        android:layout_marginRight="146dp"
+        >
+
+
+
+        <ImageView
+            android:src="@drawable/ic_grass"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_weight="1"
+
+            />
+        <ImageView
+            android:src="@drawable/ic_grass"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_weight="1"
+
+            />
+        <ImageView
+            android:src="@drawable/ic_grass"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_weight="1"
+
+            />
+        <ImageView
+            android:src="@drawable/ic_grass"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_weight="1"
+
+            />
+
+
+
+    </TableRow>
+    <TextView
+        android:layout_marginLeft="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        />
+
+
+</LinearLayout>

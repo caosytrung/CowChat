@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    >
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        >
+
+        <TextView
+            android:text="Kute"
+            android:textColor="@color/whiteDack"
+            android:textSize="28dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:text="Lavachequirit"
+            android:textSize="28dp"
+            android:textColor="@color/white"
+            />
+
+    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        />
+    <RelativeLayout
+        android:layout_width="128dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_height="128dp">
+
+        <TextView
+            android:id="@+id/tvSelectAvatar"
+            android:background="@drawable/bg_chonanh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chon anh"
+            android:layout_centerInParent="true"
+            android:drawableLeft="@android:drawable/ic_menu_camera"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:padding="2dp"
+            android:src="@drawable/def_avatar"
+            android:id="@+id/ivAvatarSU"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_avatar"
+
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+
+    <EditText
+        android:drawablePadding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_edt_login"
+        android:textColor="@color/white"
+        android:hint="First name"
+        android:textSize="20dp"
+        android:text="Mam"
+        android:lines="1"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="46dp"
+        android:layout_marginBottom="4dp"
+
+        android:id="@+id/edtFirstNameSU" />
+
+    <TextView
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+    <EditText
+        android:id="@+id/edtLastNameSU"
+        android:drawablePadding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_edt_login"
+        android:textColor="@color/white"
+        android:hint="Last name"
+        android:textSize="20dp"
+        android:lines="1"
+        android:text="Mit"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="4dp"
+
+        />
+    <TextView
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+
+    <RadioGroup
+        android:id="@+id/rg_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_marginLeft="28dp"
+            android:backgroundTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:textSize="16dp"
+            android:buttonTint="@color/white"
+            android:textColor="@color/white"
+            android:id="@+id/rbMale"
+            android:checked="true"
+            />
+        <RadioButton
+            android:textSize="16dp"
+            android:layout_marginLeft="28dp"
+            android:buttonTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:textColor="@color/white"
+            android:id="@+id/rbFemale"
+            android:checked="false"
+            />
+    </RadioGroup>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:background="@drawable/bg_button_nextstep"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:id="@+id/btnSignup"
+        />
+
+
+
+
+
+</LinearLayout>

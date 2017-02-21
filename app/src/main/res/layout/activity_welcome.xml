@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivAvatarWelcome"
+        android:text="Hi Everyone !"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/white"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:id="@+id/tvUserWellcome"
+        android:textSize="24dp"
+        android:shadowColor="@color/black"
+        android:shadowDx="-1"
+        android:textStyle="bold"
+        android:shadowDy="2"
+        android:shadowRadius="8"
+        />
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserWellcome"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tr"
+        >
+        <ImageView
+            android:id="@+id/ivGrass1"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_grass"
+            />
+
+        <ImageView
+            android:id="@+id/ivGrass2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_grass"
+            />
+
+        <ImageView
+            android:id="@+id/ivGrass3"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_grass"
+            />
+        <ImageView
+            android:id="@+id/ivGrass4"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_grass"
+            />
+        <ImageView
+            android:id="@+id/ivGrass5"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_grass"
+            />
+    </TableRow>
+    <TextView
+        android:layout_width="186dp"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
+        android:shadowRadius="16"
+        android:layout_below="@+id/tr"
+        android:background="@color/whiteLine"
+        android:id="@+id/textView" />
+
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="148dp"
+        android:layout_height="148dp"
+        android:src="@drawable/default_avatar"
+        android:layout_marginTop="84dp"
+        android:id="@+id/ivAvatarWelcome"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TableRow
+        android:id="@+id/tbrLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="73dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginRight="8dp"
+            android:text="Loading"
+            android:textSize="18dp"
+            android:textColor="@color/white"
+            android:id="@+id/textView2" />
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:layout_gravity="bottom"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:indicatorColor="@color/white"
+            app:indicatorName="BallPulseIndicator"
+            android:layout_centerHorizontal="true"
+
+            android:id="@+id/AVLoadingIndicatorView" />
+    </TableRow>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No interner accesst"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_nointernet"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:paddingTop="1dp"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        android:gravity="center"
+        android:id="@+id/tvNoInternet"
+        android:layout_marginBottom="64dp"
+        android:layout_marginTop="16dp"
+
+
+        />
+
+
+</RelativeLayout>

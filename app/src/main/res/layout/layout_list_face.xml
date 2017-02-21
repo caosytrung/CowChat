@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DDFFFFFF"
+    >
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:id="@+id/ivDrawAvater"/>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        >
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_grass"
+            />
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_grass"
+            android:layout_marginRight="16dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:lines="1"
+            android:id="@+id/tvFullNameDL"
+            android:textColor="@color/black"
+            android:text="Full Name"/>
+        <ImageView
+            android:layout_marginLeft="16dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_grass"
+            />
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_grass"
+            />
+    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:layout_gravity="center"
+        android:id="@+id/tvEmailDl"
+        android:text="(Email)"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"
+        android:layout_marginBottom="4dp"
+
+        />
+
+    <TextView
+
+        android:textColor="@color/blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:layout_margin="4dp"
+        android:text="View Profile"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:textColor="@color/blue"
+        android:textSize="16dp"
+        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friend Request Sent"
+        />
+    <TextView
+        android:textColor="@color/blue"
+        android:textSize="16dp"
+        android:layout_margin="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Respond To Friend Request"
+        />
+    <TextView
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/line"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:text="Seeting"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="4dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:textSize="18dp"
+        android:textColor="@color/red"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/tvSignOutDL"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp">
+    <RelativeLayout
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        >
+        <com.example.mammam.cowchat.ui.custom.SelectableRoundedImageView
+            android:layout_width="256dp"
+            android:layout_height="256dp"
+            android:scaleType="centerInside"
+            app:sriv_left_top_corner_radius="16dip"
+            app:sriv_right_top_corner_radius="16dip"
+            app:sriv_left_bottom_corner_radius="16dip"
+            app:sriv_right_bottom_corner_radius="16dip"
+            android:id="@+id/ivSmsType4" />
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="64dp"
+            android:id="@+id/prgSmsType4"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

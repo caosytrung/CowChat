@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="8dp"
+        android:id="@+id/ivItemSGC"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chat group"
+            android:layout_gravity="center"
+            android:layout_marginLeft="1dp"
+            android:lines="1"
+            android:textColor="@color/blackLight"
+            android:textSize="18dp"
+            android:layout_marginTop="8dp"
+            android:id="@+id/tvNameRoom"
+            />
+        <TextView
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:lines="1"
+            android:text="Member"
+            android:id="@+id/tvMember"
+
+            />
+    </LinearLayout>
+
+</LinearLayout>

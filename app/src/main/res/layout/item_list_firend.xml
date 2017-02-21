@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="64dp"
+        android:id="@+id/ivAvatarListFriend"
+        android:layout_height="64dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <TableRow
+          android:layout_width="match_parent"
+          android:layout_height="32dp"
+          android:layout_marginLeft="4dp"
+          >
+
+          <TextView
+              android:layout_width="0dp"
+              android:layout_weight="2"
+              android:layout_height="32dp"
+              android:text="Full name"
+              android:lines="1"
+              android:gravity="bottom"
+              android:id="@+id/tvFullnameLF"
+              android:textColor="@color/black"
+              android:textSize="20dp"
+              android:paddingLeft="8dp"
+              />
+
+          <TextView
+              android:layout_width="0dp"
+              android:layout_height="match_parent"
+              android:text="Last date"
+              android:id="@+id/tvLastDateLF"
+              android:textSize="13dp"
+              android:layout_weight="1"
+              android:gravity="bottom|left"
+              android:lines="1"
+              />
+      </TableRow>
+        <TextView
+            android:layout_marginLeft="4dp"
+            android:lines="1"
+            android:id="@+id/tvLastSmSLF"
+            android:layout_width="match_parent"
+            android:gravity="bottom"
+            android:text="No thing"
+            android:paddingLeft="8dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+</LinearLayout>

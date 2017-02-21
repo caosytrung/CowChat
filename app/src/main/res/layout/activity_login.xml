@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:orientation="vertical"
+   >
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="46dp"
+        >
+
+        <TextView
+            android:text="Kute"
+            android:textColor="@color/whiteDack"
+            android:textSize="28dp"
+            android:textStyle="bold"
+           />
+        <TextView
+            android:text="Lavachequirit"
+            android:textSize="28dp"
+            android:textColor="@color/white"
+            />
+    </TableRow>
+
+    <EditText
+        android:lines="1"
+        android:drawablePadding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_edt_login"
+        android:textColor="@color/white"
+        android:hint="Emai"
+        android:text="zzz@zzz.zzz"
+        android:textSize="20dp"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="4dp"
+        android:drawableLeft="@drawable/user"
+        android:id="@+id/edtEmailLogin" />
+
+    <TextView
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_width="match_parent"
+        android:text="zzz@zzz.zzz"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+    <EditText
+        android:id="@+id/edtPasswordLogin"
+        android:drawablePadding="8dp"
+        android:layout_width="match_parent"
+        android:lines="1"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/bg_edt_login"
+        android:textColor="@color/white"
+        android:hint="Password"
+        android:text="123456"
+        android:textSize="20dp"
+        android:textColorHint="@color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
+        android:drawableLeft="@android:drawable/ic_partial_secure"
+        />
+    <TextView
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"/>
+    <Button
+        android:id="@+id/btnLogin"
+        android:textAllCaps="false"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_gravity="center"
+        android:text="Login to my account "
+        android:textSize="20dp"
+        android:textColor="@color/whiteDack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_login"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tvNextSignup"
+        android:gravity="center"
+        android:layout_width="230dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="18dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:text="New here? Create an account! "
+        />
+
+</LinearLayout>

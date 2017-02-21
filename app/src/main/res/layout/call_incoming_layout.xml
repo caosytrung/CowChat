@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackLight"
+
+    >
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="64dp"
+        android:layout_gravity="center"
+        android:id="@+id/ivCallIncoming"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="tvReicei"
+        android:layout_gravity="center"
+        android:textColor="@color/whiteDack"
+        android:id="@+id/tvCallIncoming"
+        android:textSize="24dp"
+        />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        >
+
+        <com.example.mammam.cowchat.ui.custom.RippleBackground
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="216dp"
+            android:layout_gravity="center"
+            app:rb_duration="3000"
+            app:rb_radius="20dp "
+            app:rb_scale="4"
+            app:rb_rippleAmount="6"
+            app:rb_color="@color/semitransparent_red"
+            android:id="@+id/rpBgStopRei"
+            >
+
+            <TextView
+
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="Stop"
+                android:textAllCaps="false"
+                android:textSize="16dp"
+                android:padding="16dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:id="@+id/btnCallTopInComing"
+                android:background="@drawable/bg_ic_hangup"
+                android:layout_centerInParent="true"/>
+        </com.example.mammam.cowchat.ui.custom.RippleBackground>
+
+        <com.example.mammam.cowchat.ui.custom.RippleBackground
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="216dp"
+            android:gravity="center"
+            app:rb_duration="3000"
+            app:rb_radius="20dp "
+            app:rb_scale="4"
+            app:rb_rippleAmount="6"
+            app:rb_color="@color/semitransparent_green"
+            android:id="@+id/rpBgAnserRei"
+            >
+
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="Answer"
+                android:textAllCaps="false"
+                android:textSize="16dp"
+                android:padding="8dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:id="@+id/btnCallAnaserIncoming"
+                android:background="@drawable/bg_ic_anser"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true" />
+        </com.example.mammam.cowchat.ui.custom.RippleBackground>
+
+
+    </TableRow>
+
+</LinearLayout>
