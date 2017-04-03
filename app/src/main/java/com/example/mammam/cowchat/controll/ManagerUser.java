@@ -189,7 +189,8 @@ public class ManagerUser implements IConstand {
     public void guiDiLoiMoiKetBan(UserChat usFriend){
          mDatabaseReference.child(USER).
                 child(getCurrentId()).child(LISt_GUI_DI_LOI_MOI).
-                 child(usFriend.getId()).setValue(usFriend.getEmail());
+                 child(usFriend.getId()).setValue(usFriend);
+
 
          mDatabaseReference.child(USER).
                 child(usFriend.getId()).child(LIST_DE_NGHI_KET_BAN).child(getCurrentId()).
@@ -414,7 +415,7 @@ public class ManagerUser implements IConstand {
     }
 
     private void tiepTucChapNhan(final UserChat userChat1){
-        final String roomId = userChat.getId() + userChat1.getId();
+        final String roomId =  userChat1.getId()+userChat.getId();
         Log.d("Usercha1",userChat1.getEmail());
         FriendChat friend = new FriendChat(userChat1.getLinkAvartar(),
                 userChat1.getEmail(),

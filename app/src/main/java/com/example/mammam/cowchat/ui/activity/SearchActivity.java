@@ -56,6 +56,7 @@ public class SearchActivity extends BaseActivity implements IConstand {
 
     }
     public void openFragmentViewInfor(){
+
         getSupportFragmentManager().beginTransaction().
                 replace(R.id.rvContentSearch,viewInforUserFragment,
                         ViewInforUserFragment.class.getName()).commit();

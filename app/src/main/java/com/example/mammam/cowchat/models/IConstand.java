@@ -7,6 +7,8 @@ import android.os.Environment;
  */
 
 public interface IConstand {
+
+    String DRAW = "DRAW";
     String LOGIN = "LOGIN";
     String SAVE_USER = "SAVE_USER";
     String SAVE_PASSWORD = "SAVE_PASSWORD";
@@ -64,5 +66,22 @@ public interface IConstand {
     String APPLICATION_KEY = "56a2ec27-42a2-40f8-a61f-fd531eea30b4";
     String APPLICATION_SECRET = "XDNCrn1s5UOFK3I0nKKJcQ==";
     String HOST = "sandbox.sinch.com";
-
+    int SMALL_WIDTH = 4;
+    int LARGE_WIDTH = 8;
+    int BIG_WIDTH = 16;
+    String WHITE_COLOR = "#FFFFFF";
+    String BLACK_COLOR = "#000000";
+    String RED_COLOR = "#F44336";
+    String BLUE_COLOR= "#2196F3";
+    String GREEN_COLOR = "#2E7D32";
+    String YELLOW_COLOR = "#FFEB3B";
+    String ORANGE_COLOR = "#FF9800";
+    String GRAY_COLOR = "#9E9E9E";
+    String GREEN_LIGH = "#76FF03";
+    int DEFAULT_WIDTH_PEN_DRAW = 4;
+    String DEFAULE_COLOR_PEN = "#000000";
+    String DEFAULT_COLOR_BG_DRAW = "#FFEB3B";
+    String KEY_DEFAULT_WIDTH_PEN_DRAW = "KEY_DEFAULT_WIDTH_PEN_DRAW";
+    String KEY_DEFAULE_COLOR_PEN = "KEY_DEFAULE_COLOR_PEN";
+    String KEY__DEFAULT_COLOR_BG_DRAW = "KEY__DEFAULT_COLOR_BG_DRAW";
 }

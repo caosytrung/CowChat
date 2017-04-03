@@ -24,6 +24,7 @@ import com.example.mammam.cowchat.models.UserLocal;
 import com.example.mammam.cowchat.ui.adapter.RCConvesationAdapter;
 import com.example.mammam.cowchat.ui.asset.MrgTypeFace;
 import com.example.mammam.cowchat.ui.fragm.ConversationFragment;
+import com.example.mammam.cowchat.ui.fragm.DrawFragment;
 import com.example.mammam.cowchat.ui.fragm.ImageFragment;
 import com.example.mammam.cowchat.ui.interf.IClickItemRycyclerView;
 import com.example.mammam.cowchat.ui.interf.IListSMs;
@@ -47,6 +48,7 @@ public class ConsersationActivity extends BaseActivity implements IConstand
         , View.OnClickListener {
     public ImageFragment imageFragment;
     public ConversationFragment conversationFragment;
+    private DrawFragment drawFragment;
 
     @Override
     protected void initComponents() {
@@ -59,6 +61,7 @@ public class ConsersationActivity extends BaseActivity implements IConstand
         Bundle bundle = new Bundle();
         bundle.putString(ROOM_ID,getIntent().getStringExtra(ROOM_ID));
         bundle.putString(FRIEND_ID,getIntent().getStringExtra(FRIEND_ID));
+        bundle.putString("NAME",getIntent().getStringExtra("NAME"));
 
         conversationFragment = new ConversationFragment(getSupportFragmentManager());
         conversationFragment.setArguments(bundle);
@@ -76,6 +79,24 @@ public class ConsersationActivity extends BaseActivity implements IConstand
                 add(R.id.rLContentConV,imageFragment,
                         ImageFragment.class.getName()).addToBackStack("2").
                commit();
+
+    }
+
+    public void showDrawFragment(){
+        drawFragment = new DrawFragment();
+        getSupportFragmentManager().beginTransaction().
+                add(R.id.rLContentConV,drawFragment,DrawFragment.class.getName()).
+                addToBackStack("3").
+                commit();
+
+    }
+
+    public void remoteFragmentConv(Bitmap bitmap){
+        getSupportFragmentManager().beginTransaction().remove(drawFragment).commit();
+
+        ConversationFragment fragment = (ConversationFragment)
+                getSupportFragmentManager().findFragmentByTag(ConversationFragment.class.getName());
+        fragment.saveImageSms(bitmap);
 
     }
 

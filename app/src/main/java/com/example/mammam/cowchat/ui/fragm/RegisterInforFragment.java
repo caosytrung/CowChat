@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,6 +45,7 @@ public class RegisterInforFragment extends BaseFragment
         implements View.OnClickListener,IConstand,ISignup,ISaveInformation, ISavePhoto {
 
     private static final String TAG = "RegisterInforFragment" ;
+    private static final int PIC_CROP = 96;
     private ManagerStorage mManagerStorage = ManagerStorage.getInstance();
 
     private Uri uriImage;
@@ -141,13 +143,38 @@ public class RegisterInforFragment extends BaseFragment
                 break;
         }
     }
+    private void performCrop(Uri picUri) {
+        Intent cropIntent = new Intent("com.android.camera.action.CROP");
+
+        cropIntent.setDataAndType(picUri, "image/*");
+
+        cropIntent.putExtra("crop", true);
+
+        //cropIntent.putExtra("aspectX", 9);
+        //cropIntent.putExtra("aspectY", 16);
+
+        //cropIntent.putExtra("outputX", 108);
+        //cropIntent.putExtra("outputY", 128);
+
+        cropIntent.putExtra("return-data", true);
+
+        startActivityForResult(cropIntent, PIC_CROP);
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (RQ_GALL == requestCode && resultCode == getActivity().RESULT_OK){
             uriImage = data.getData();
-            Picasso.with(getContext()).load(uriImage).into(ivAvatar);
+            performCrop(uriImage);
+            //Picasso.with(getContext()).load(uriImage).into(ivAvatar);
+        } else if (requestCode == PIC_CROP){
+            if (data != null) {
+                Bundle extras = data.getExtras();
+                Bitmap bitmap= extras.getParcelable("data");
+                ivAvatar.setImageBitmap(bitmap);
+            }
         }
     }
 

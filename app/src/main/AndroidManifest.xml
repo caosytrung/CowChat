@@ -14,9 +14,12 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
+        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/icon_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -24,7 +27,6 @@
         <activity android:name=".ui.activity.StartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,8 +35,10 @@
         <activity android:name=".ui.activity.LoginActivity"/>
         <activity android:name=".ui.activity.WelcomActivity"/>
         <activity android:name=".ui.activity.SearchActivity"/>
+        <activity android:name=".ui.activity.GlMapActivity"/>
         <activity android:name=".ui.activity.ConsersationActivity"
         />
+        <service android:name=".service.ChatService"/>
         <service android:name=".service.DownloadService"/>
         <receiver android:name=".broadcast.MyBroadCast" android:enabled="true">
             <intent-filter>
@@ -44,8 +48,14 @@
         <service android:name=".service.ServiceCall"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD0LqxirV7YTXiZZwwlcxho7tJteoATl4k"
+            android:value="AIzaSyAo0dpuji24jKkCBzBNhZhsLpI8qSldbGw"
             />
+        <service android:name=".service.FirebaseMrgService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".service.VideoCall"/>
     </application>
 
 

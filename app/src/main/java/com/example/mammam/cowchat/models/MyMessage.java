@@ -18,16 +18,26 @@ public class MyMessage {
 
     HashMap<String, Object> timestampCreated;
     private String idSent;
+    private int state;
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
 
     public MyMessage() {
     }
 
-    public MyMessage(int type, String body, String desCription, String idSent) {
+    public MyMessage(int type, String body, String desCription, String idSent,int state) {
         this.type = type;
         this.body = body;
         this.desCription = desCription;
 
         this.idSent = idSent;
+        this.state = state;
 
         HashMap<String, Object> timestampNow = new HashMap<>();
         timestampNow.put("timestamp", ServerValue.TIMESTAMP);

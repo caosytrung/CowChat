@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/whiteGray"
+        >
+    <TextView
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:textSize="28dp"
+        android:layout_marginLeft="8dp"
+        android:text="@color/green"
+        android:textColor="@color/greenLight"
+        android:scaleType="fitXY"
+        android:layout_height="match_parent"
+        android:layout_marginRight="80dp"
+        android:id="@+id/tvBackDraw"
+        />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginRight="24dp"
+            android:src="@drawable/delete"
+            android:id="@+id/ivDeleteDraw"
+            />
+
+        <Spinner
+            android:background="#FFFFFF"
+            android:id="@+id/spPenWidth"
+            android:layout_marginRight="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center"></Spinner>
+        <Spinner
+            android:background="@color/white"
+            android:id="@+id/ivPenColor"
+            android:layout_marginRight="16dp"
+            android:layout_width="36dp"
+            android:src="@drawable/ic_pen"
+            android:layout_height="36dp"
+            android:layout_gravity="center"
+
+            />
+        <Spinner
+            android:background="#FFFFFF"
+            android:id="@+id/spPenColorBackGround"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            ></Spinner>
+    </TableRow>
+    <com.example.mammam.cowchat.ui.custom.DrawingView
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:id="@+id/dvDraw"
+        android:background="@color/white"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:text="Undo"
+            android:padding="8dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:id="@+id/tvUndoDraw"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tvSendDraw"
+            android:textColor="@color/black"
+            android:background="@color/white"
+            android:text="Send"
+            android:textSize="18dp"
+            android:padding="8dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

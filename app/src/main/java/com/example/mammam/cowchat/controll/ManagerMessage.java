@@ -1,6 +1,8 @@
 package com.example.mammam.cowchat.controll;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -17,6 +19,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -59,7 +65,7 @@ public class   ManagerMessage implements IConstand{
         mDatabaseReference = FirebaseDatabase.getInstance().getReference();
     }
 
-    public void getListSms(String roomId){
+    public void getListSms(final String roomId){
         final List<MyMessage> myMessages = new ArrayList<>();
 
         final DatabaseReference child = mDatabaseReference.
@@ -69,6 +75,16 @@ public class   ManagerMessage implements IConstand{
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     MyMessage myMessage = snapshot.getValue(MyMessage.class);
+
+                    if (1 == myMessage.getState()){
+                        MyMessage tmp = new MyMessage(myMessage.getType(),myMessage.getBody(),
+                                myMessage.getDesCription(),myMessage.getIdSent(),1);
+                        tmp.setState(1);
+                        updateSms(tmp,roomId);
+
+                    }
+
+
                     Log.d("gsdfsdf",getCurrentId() + ", " + myMessage.getIdSent());
                     if (myMessage.getIdSent().equals(getCurrentId())){
                         int type = myMessage.getType();
@@ -111,7 +127,9 @@ public class   ManagerMessage implements IConstand{
                         Date date=new Date(val);
                         SimpleDateFormat df2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSSS");
                         Log.d("Succi","Da vao");
+                        Log.d("asdasdasdasdasdas  ",df2.format(new Date(val)) );
                         addSms(df2.format(date),myMessage,roomId);
+
                     }
 
                     @Override
@@ -123,9 +141,8 @@ public class   ManagerMessage implements IConstand{
         });
     }
 
-    public void addSms(String id,MyMessage myMessage,String roomId){
-      //  getTime();
 
+    public void addSms(String id,MyMessage myMessage,String roomId){
          mDatabaseReference.
                 child(LIST_ROOM).child(roomId).child(CONVERSATION).
         child(id).setValue(myMessage).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -136,7 +153,12 @@ public class   ManagerMessage implements IConstand{
                 }
             }
         });
+    }
 
+    public void updateSms(MyMessage myMessage,String roomID){
+        DatabaseReference child = mDatabaseReference.child(LIST_ROOM).child(roomID).child(CONVERSATION);
+        myMessage.setState(1);
+        child.setValue(myMessage);
 
     }
 

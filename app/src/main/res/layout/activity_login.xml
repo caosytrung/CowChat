@@ -4,9 +4,10 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
+    android:background="@color/black"
     android:orientation="vertical"
    >
+    <!--android:background="@drawable/bg_login"-->
 
     <TableRow
         android:layout_width="wrap_content"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fbutton="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,6 +21,28 @@
         android:background="@drawable/circle"
         android:paddingBottom="8dp"
         app:rb_scale="4">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+            <ImageView
+                android:src="@drawable/igm_google_map"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_img_map"
+                android:id="@+id/ivCallOpenGlMap"
+              />
+            <ImageView
+                android:id="@+id/ivArrowUp"
+                android:layout_marginTop="2dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_arrow_up"/>
+        </LinearLayout>
+
         <com.example.mammam.cowchat.ui.custom.CircleImageView
             android:layout_width="128dp"
             android:layout_height="128dp"

@@ -11,6 +11,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.os.PowerManager;
 import android.os.ResultReceiver;
 import android.provider.MediaStore;
@@ -71,6 +72,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+import static android.R.attr.data;
 import static android.app.Activity.RESULT_OK;
 
 /**
@@ -81,6 +83,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
         IClickItemRycyclerView, ChildEventListener, View.OnClickListener {
 
     public static final String TAG = "ConversationFragment";
+    private static final int PIC_CROP = 96;
     private TextView tvCall;
     private TextView tvFullName;
     private TextView tvMenu;
@@ -94,7 +97,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
     private EventBus mEventBus;
     private ManagerMessage managerMessage;
     private UserLocal userLocal;
-    private RecyclerView rvChat;
+    private RecyclerView f;
     private RCConvesationAdapter rcConvesationAdapter;
     private EditText edtSent;
     public String roomId;
@@ -105,6 +108,8 @@ public class ConversationFragment extends BaseFragment implements IConstand,
     private List<MyMessage> mMessages;
     private StickerDialog mStickerDialog;
     private FragmentManager mFragmentManage;
+    private RecyclerView rvChat;
+
 
     public ConversationFragment(){
 
@@ -177,6 +182,8 @@ public class ConversationFragment extends BaseFragment implements IConstand,
         tvFile.setText("\uf15b");
         tvPaint.setText("\uf044");
         tvInputText.setText("\uf20d");
+        tvFullName.setText(fullname);
+
         managerMessage.setiListSMs(new IListSMs() {
             @Override
             public void listSms(List<MyMessage> myMessages) {
@@ -193,7 +200,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
             }
         });
     }
-
+    String fullname;
     @Override
     public void initComponents() {
         mEventBus = EventBus.getDefault();
@@ -205,6 +212,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
 
         idFriend = getArguments().getString(FRIEND_ID);
         roomId = getArguments().getString(ROOM_ID);
+        fullname = getArguments().getString("NAME");
 
         rcConvesationAdapter = new RCConvesationAdapter(getContext(),this);
         managerMessage = ManagerMessage.getManagerMessage();
@@ -220,10 +228,12 @@ public class ConversationFragment extends BaseFragment implements IConstand,
             public void savePhoto(Uri uri) {
                 MyMessage myMessage =
                         new MyMessage(2,String.valueOf(uri),
-                                "Nothing",userLocal.getId());
+                                "Nothing",userLocal.getId(),0);
                 managerMessage.getTime(myMessage,roomId);
             }
         });
+
+
     }
 
     @Override
@@ -248,6 +258,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
         tvFile.setOnClickListener(this);
         tvInputText.setOnClickListener(this);
         tvNhanDan.setOnClickListener(this);
+        tvPaint.setOnClickListener(this);
     }
     public void downloadFile(int pos){
         mProgressDialog.show();
@@ -330,7 +341,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
                 if(body.length() == 0 ){
                     return;
                 }
-                MyMessage myMessage = new MyMessage(1,body,"Nothing",userLocal.getId());
+                MyMessage myMessage = new MyMessage(1,body,"Nothing",userLocal.getId(),0);
                 managerMessage.getTime(myMessage,roomId);
                 edtSent.setText("");
                 break;
@@ -361,9 +372,37 @@ public class ConversationFragment extends BaseFragment implements IConstand,
                // (new StickerDialog(getContext(),mFragmentManage)).show();
                 new StickerFragmentDialog().show(mFragmentManage,"");
                 break;
+            case R.id.tvDrawConv:
+                ConsersationActivity activity = (ConsersationActivity) getActivity();
+                activity.showDrawFragment();
+
+                break;
             default:
                 break;
         }
+    }
+
+    public void saveImageSms(Bitmap bitmap){
+        storage = ManagerStorage.getInstance();
+        storage.saveImageSms(bitmap);
+    }
+
+    private void performCrop(Uri picUri) {
+        Intent cropIntent = new Intent("com.android.camera.action.CROP");
+
+        cropIntent.setDataAndType(picUri, "image/*");
+
+        cropIntent.putExtra("crop", true);
+
+        //cropIntent.putExtra("aspectX", 9);
+        //cropIntent.putExtra("aspectY", 16);
+
+        //cropIntent.putExtra("outputX", 108);
+        //cropIntent.putExtra("outputY", 128);
+
+        cropIntent.putExtra("return-data", true);
+
+        startActivityForResult(cropIntent, PIC_CROP);
     }
 
     @Override
@@ -371,24 +410,27 @@ public class ConversationFragment extends BaseFragment implements IConstand,
                                  int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (RESULT_OK == resultCode){
-            Uri uriImage  = data.getData();
-            Bitmap bitmap = null;
-            try {
-                bitmap = MediaStore.Images.Media.
-                        getBitmap(getContext().getContentResolver(), uriImage);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            switch (requestCode){
-                case RQ_GALL:
 
-                    storage = ManagerStorage.getInstance();
-                    storage.saveImageSms(bitmap,uriImage);
+            switch (requestCode){
+                case PIC_CROP:
+                    if (data != null) {
+                        Bundle extras = data.getExtras();
+                        Bitmap bitmap= extras.getParcelable("data");
+                        storage = ManagerStorage.getInstance();
+                        storage.saveImageSms(bitmap);
+                    }
+
+                    break;
+                case RQ_GALL:
+                    Uri uriImage  = data.getData();
+
+                    performCrop(uriImage);
                     break;
                 case RQ_CAMERA:
+                    Uri uriImage1  = data.getData();
 
-                    storage = ManagerStorage.getInstance();
-                    storage.saveImageSms(bitmap,uriImage);
+                    performCrop(uriImage1);
+
                     break;
                 case RQ_FILE:
                     Uri uri = data.getData();
@@ -407,7 +449,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
 
                             MyMessage myMessage =
                                     new MyMessage(3,String.valueOf(uriDown)
-                                            ,fileName,userLocal.getId());
+                                            ,fileName,userLocal.getId(),0);
                             managerMessage.getTime(myMessage,roomId);
 
                         }
@@ -416,6 +458,8 @@ public class ConversationFragment extends BaseFragment implements IConstand,
                 default:
                     break;
             }
+        } else {
+            return;
         }
 
     }
@@ -580,7 +624,7 @@ public class ConversationFragment extends BaseFragment implements IConstand,
 
     @Subscribe(sticky = true,threadMode = ThreadMode.MAIN)
     public void onEvent(EventSticker eventSticker){
-        MyMessage myMessage = new MyMessage(4,eventSticker.getContent(),"",userLocal.getId());
+        MyMessage myMessage = new MyMessage(4,eventSticker.getContent(),"",userLocal.getId(),0);
         managerMessage.getTime(myMessage,roomId);
 
     }

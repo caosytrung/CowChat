@@ -15,7 +15,7 @@
         android:visibility="gone"
         android:id="@+id/prgGC2"
         />
-    <com.example.mammam.cowchat.ui.custom.CircleImageView
+    <android.support.design.widget.FloatingActionButton
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_alignParentBottom="true"

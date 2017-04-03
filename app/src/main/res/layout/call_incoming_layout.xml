@@ -66,7 +66,7 @@
             android:layout_height="216dp"
             android:gravity="center"
             app:rb_duration="3000"
-            app:rb_radius="20dp "
+            app:rb_radius="20dp"
             app:rb_scale="4"
             app:rb_rippleAmount="6"
             app:rb_color="@color/semitransparent_green"

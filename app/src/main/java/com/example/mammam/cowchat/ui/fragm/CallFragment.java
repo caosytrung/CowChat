@@ -1,5 +1,6 @@
 package com.example.mammam.cowchat.ui.fragm;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.widget.LinearLayoutManager;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.example.mammam.cowchat.R;
 import com.example.mammam.cowchat.controll.ManagerUser;
 import com.example.mammam.cowchat.models.EventCall;
+import com.example.mammam.cowchat.models.EventVideo;
 import com.example.mammam.cowchat.models.FriendChat;
 import com.example.mammam.cowchat.ui.adapter.RVCallAdapter;
 import com.example.mammam.cowchat.ui.interf.IClickItemRycyclerView;
@@ -57,6 +59,28 @@ public class CallFragment extends BaseFragment implements IClickItemRycyclerView
         mEventBus = EventBus.getDefault();
         adapter = new RVCallAdapter(getContext(),mFriendChats);
         adapter.setiClickItemRycyclerView(this);
+        adapter.setiClickVideo(new IClickItemRycyclerView() {
+            @Override
+            public void onItemClick(int pos, View v) {
+                EventVideo eventCall =
+                        new EventVideo(mFriendChats.
+                                get(pos).getFullName(),mFriendChats.
+                                get(pos).getId(),mFriendChats.get(pos).getLinkAvatar(),
+                                mFriendChats.get(pos).getRoomId());
+                mEventBus.postSticky(eventCall);
+                Log.d("ClickVIdeo","Clicked");
+                Intent intent = new Intent();
+                intent.setAction("VIDEO");
+                intent.putExtra("DATA",eventCall);
+                getContext().sendBroadcast(intent);
+            }
+
+            @Override
+            public void onItemLongCLick(int pos, View v) {
+
+            }
+        });
+
         managerUser = new ManagerUser(getContext());
 
         managerUser.setiListFriend(new IListFriend() {
@@ -65,9 +89,19 @@ public class CallFragment extends BaseFragment implements IClickItemRycyclerView
                 mFriendChats = friendChats;
                 adapter.setFriendChats(friendChats);
                 adapter.notifyDataSetChanged();
+
             }
         });
-        managerUser.getListFiend();
+       // managerUser.getListFiend();
+    }
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser){
+            managerUser.getListFiend();
+        }
     }
 
     @Override
@@ -77,21 +111,22 @@ public class CallFragment extends BaseFragment implements IClickItemRycyclerView
 
     @Override
     public void onItemClick(int pos, View v) {
-        MediaPlayer mediaPlayer = MediaPlayer.create(getContext(),R.raw.df_rington);
-        mediaPlayer.setLooping(true);
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_VOICE_CALL);
-        mediaPlayer.start();
 
         Toast.makeText(getContext(),"Da nhannnnnnnnnnn",Toast.LENGTH_LONG).show();
         Log.d(TAG,"Da vao roiiiiiiiii");
+
         EventCall eventCall =
                 new EventCall(mFriendChats.
                 get(pos).getFullName(),mFriendChats.
-                get(pos).getId(),mFriendChats.get(pos).getLinkAvatar());
+                get(pos).getId(),mFriendChats.get(pos).getLinkAvatar(),
+                        mFriendChats.get(pos).getRoomId());
         mEventBus.postSticky(eventCall);
     }
 
     @Override
     public void onItemLongCLick(int pos, View v) {
+
     }
+
+
 }

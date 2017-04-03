@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    >
+    <com.example.mammam.cowchat.ui.custom.CircleImageView
+        android:layout_width="64dp"
+        android:id="@+id/ivItemAvatarFR"
+        android:layout_height="64dp" />
+    <TextView
+        android:layout_width="156dp"
+        android:layout_height="wrap_content"
+        android:text="Full name"
+        android:lines="1"
+        android:layout_gravity="center"
+        android:gravity="bottom"
+        android:id="@+id/tvItemFullNameFr"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:paddingLeft="8dp"
+        />
+    <TextView
+        android:padding="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:id="@+id/tvItemRespondFR"
+        android:background="@drawable/bg_tv_relation"
+        android:text="Respond"/>
+    <TextView
+        android:padding="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_gravity="center"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:textColor="@color/black"
+        android:gravity="center_vertical"
+        android:id="@+id/tvItemDeleteFR"
+        android:background="@drawable/bg_tv_relation"
+        android:text="Delete"/>
+
+</LinearLayout>

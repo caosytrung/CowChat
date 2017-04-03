@@ -81,9 +81,6 @@ public class ManagerRoom implements IConstand{
     }
 
 
-
-
-
     private HashMap<String,String> getId(List<FriendChat> friendChats,String cuurentName){
         HashMap<String,String> listId = new HashMap<>();
         for (int  i = 0 ; i < friendChats.size(); i ++){
@@ -112,12 +109,11 @@ public class ManagerRoom implements IConstand{
                     Room room = snapshot.getValue(Room.class);
                     if (room.getType() == 2){
                         list.add(room);
-
                     }
-
                 }
                 child.removeEventListener(this);
                 iListRoom.listRoom(list);
+
             }
 
             @Override

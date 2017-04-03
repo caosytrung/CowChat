@@ -17,7 +17,6 @@ import com.example.mammam.cowchat.controll.ManagerUser;
 import com.example.mammam.cowchat.models.IConstand;
 import com.example.mammam.cowchat.models.UserChat;
 import com.example.mammam.cowchat.models.UserLocal;
-import com.example.mammam.cowchat.service.CallService;
 import com.example.mammam.cowchat.ui.interf.ILogin;
 
 /**
@@ -125,11 +124,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 //            intent.setAction(WELCOME);
 //            intent.putExtra(SAVE_USER,email);
 //            intent.putExtra(SAVE_PASSWORD,passWord);
-            finish();
-            startService(new Intent(this, CallService.class));
             startActivity(intent);
-
-
+            finish();
         }
         else {
             Toast.makeText(this,"Invalid Login or password.",Toast.LENGTH_LONG).show();

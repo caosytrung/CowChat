@@ -29,6 +29,8 @@ import com.example.mammam.cowchat.ui.interf.IListFriend;
 import com.example.mammam.cowchat.ui.interf.ISavePhoto;
 import com.squareup.picasso.Picasso;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.List;
 
 /**
@@ -97,7 +99,7 @@ public class CreateGroupChatFragmenrt extends BaseFragment
                 managerDbLocal.closeDatabase();
 
                 managerRoom.createGroupChat(list,
-                        local.getFirstName() + " " +  local.getLastName(),
+                        local.getFirstName() + "  " +  local.getLastName(),
                         String.valueOf(uri),edtNameRoom.getText().toString(),2);
             }
         });
@@ -106,7 +108,7 @@ public class CreateGroupChatFragmenrt extends BaseFragment
             @Override
             public void createRoom(boolean result,String roomId) {
                 MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.nextConvesation(roomId,String.valueOf(uriImage));
+                mainActivity.nextConvesation(roomId,String.valueOf(uriImage),edtNameRoom.getText().toString());
             }
         });
 

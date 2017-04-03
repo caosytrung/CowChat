@@ -12,9 +12,10 @@
     <color name="teal">#4A148C</color>
     <color name="orange">#FB8C00</color>
     <color name="blue">#2196F3</color>
+    <color name="whiteGray">#EEEEEE</color>
     <color name="line">#b7b3b3</color>
     <color name="blueLight">#BBDEFB</color>
-    <color name="greenLight">#CCFF90</color>
+    <color name="greenLight">#64DD17</color>
     <color name="semitransparent_green">#3376FF03</color>
     <color name="orangeLight">#33FFE0B2</color>
     <color name="red">#F44336</color>
@@ -25,4 +26,6 @@
     <color name="semitransparent_red">#33E57373</color>
     <color name="semitransparent_blue">#229FA8DA</color>
     <color name="semitransparent_black">#00000000</color>
+    <color name="green">#00E676</color>
+    <color name="brand_red">#d51826</color>
 </resources>

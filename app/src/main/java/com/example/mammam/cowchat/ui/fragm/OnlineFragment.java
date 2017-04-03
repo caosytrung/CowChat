@@ -48,7 +48,6 @@ public class OnlineFragment extends BaseFragment implements IListFriend, IFriend
     @Override
     public void initComponents() {
         mManagerUser = new ManagerUser(getContext());
-
         friendOnlines = new ArrayList<>();
         adapter = new RCOnlineAdapter(getContext(), friendOnlines,
                 new IClickItemRycyclerView() {
@@ -89,7 +88,7 @@ public class OnlineFragment extends BaseFragment implements IListFriend, IFriend
 
     @Override
     public void listFriend(List<FriendChat> friendChats,boolean reuslt) {
-        Log.d(TAG,friendChats.size() + " ");
+        
         for (FriendChat friendChat: friendChats){
             Log.d(TAG,friendChat.getId());
         }

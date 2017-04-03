@@ -72,7 +72,7 @@ public class FriendFragment extends BaseFragment {
                 MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.nextConvesation(friendChats.get(pos)
                         .getRoomId(),
-                        friendChats.get(pos).getLinkAvatar());
+                        friendChats.get(pos).getLinkAvatar(),friendChats.get(pos).getFullName());
             }
 
             @Override
@@ -116,7 +116,7 @@ public class FriendFragment extends BaseFragment {
 
     }
 
-    public   class FriendBroadcast extends BroadcastReceiver{
+    public class FriendBroadcast extends BroadcastReceiver{
 
         @Override
         public void onReceive(Context context, Intent intent) {

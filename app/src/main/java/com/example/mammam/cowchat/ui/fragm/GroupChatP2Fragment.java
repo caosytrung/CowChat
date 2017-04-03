@@ -1,5 +1,6 @@
 package com.example.mammam.cowchat.ui.fragm;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public class GroupChatP2Fragment extends BaseFragment implements IClickItemRycyc
     private ManagerRoom managerRoom;
     private ProgressBar progressBar;
     private IGroupChat iGroupChat;
-    private ImageView ivAddGroup;
+    private FloatingActionButton ivAddGroup;
 
     public void setiGroupChat(IGroupChat iGroupChat) {
         this.iGroupChat = iGroupChat;
@@ -49,7 +50,7 @@ public class GroupChatP2Fragment extends BaseFragment implements IClickItemRycyc
         rvGC.setAdapter(adapter);
         progressBar = (ProgressBar) view.findViewById(R.id.prgGC2);
         progressBar.setVisibility(View.VISIBLE);
-        ivAddGroup = (ImageView) view.findViewById(R.id.ivAddGroup);
+        ivAddGroup = (FloatingActionButton) view.findViewById(R.id.ivAddGroup);
     }
 
     @Override
@@ -74,7 +75,7 @@ public class GroupChatP2Fragment extends BaseFragment implements IClickItemRycyc
     @Override
     public void onItemClick(int pos, View v) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.nextConvesation(rooms.get(pos).getRoomID(),null);
+        mainActivity.nextConvesation(rooms.get(pos).getRoomID(),null,rooms.get(pos).getRoomName());
     }
 
     @Override

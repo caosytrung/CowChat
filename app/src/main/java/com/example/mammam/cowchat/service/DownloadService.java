@@ -58,86 +58,91 @@ public class DownloadService extends IntentService implements IConstand {
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "text/plain");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".xml":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "text/xml");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".apk":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file),
                         "application/vnd.android.package-archive");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".png":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "image/png");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".jpg":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "image/jpeg");
-               // mContext.startActivity(intent);
+                // mContext.startActivity(intent);
                 break;
             case ".mp4":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "video/mp4");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".rar":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "application/x-rar-compressed");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".zip":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "application/x-rar-compressed");
-             //   mContext.startActivity(intent);
+                //   mContext.startActivity(intent);
                 break;
             case ".mp3":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "audio/mp3");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".m4a":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "audio/m4a");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".ogg":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "audio/ogg");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".doc":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "application/msword");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case "docx":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "application/msword");
-              //  mContext.startActivity(intent);
+                //  mContext.startActivity(intent);
                 break;
             case ".pdf":
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.setDataAndType(Uri.fromFile(file), "application/pdf");
-            //    mContext.startActivity(intent);
+                //    mContext.startActivity(intent);
+                break;
+            case "pptx":
+                intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.fromFile(file), "application/vnd.ms-powerpoint");
                 break;
 
         }
@@ -146,7 +151,7 @@ public class DownloadService extends IntentService implements IConstand {
 
 
 
-        public DownloadService() {
+    public DownloadService() {
         super("DownloadService");
     }
 

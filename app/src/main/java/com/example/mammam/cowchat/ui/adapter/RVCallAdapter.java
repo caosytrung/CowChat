@@ -25,12 +25,15 @@ import java.util.List;
 
 public class RVCallAdapter extends RecyclerView.Adapter<RVCallAdapter.ViewHolder> {
     private List<FriendChat> friendChats;
-    private ICall iCall;
     private Context mContext;
     private IClickItemRycyclerView iClickItemRycyclerView;
+    private IClickItemRycyclerView iClickVideo;
 
+    public void setiClickVideo(IClickItemRycyclerView iClickVideo) {
+        this.iClickVideo = iClickVideo;
+    }
 
-    public RVCallAdapter(Context context,List<FriendChat> friendChats){
+    public RVCallAdapter(Context context, List<FriendChat> friendChats){
         mContext = context;
         this.friendChats = friendChats;
     }
@@ -43,9 +46,6 @@ public class RVCallAdapter extends RecyclerView.Adapter<RVCallAdapter.ViewHolder
         this.friendChats = friendChats;
     }
 
-    public void setiCall(ICall iCall) {
-        this.iCall = iCall;
-    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -67,6 +67,17 @@ public class RVCallAdapter extends RecyclerView.Adapter<RVCallAdapter.ViewHolder
             }
         });
 
+        MrgTypeFace.setFontAnswesSome(holder.tvVideo,mContext);
+        holder.tvVideo.setText("\uf03d");
+
+        holder.tvVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iClickVideo.onItemClick(position,v);
+            }
+        });
+
+
     }
 
     @Override
@@ -78,16 +89,15 @@ public class RVCallAdapter extends RecyclerView.Adapter<RVCallAdapter.ViewHolder
         private ImageView ivAvatar;
         private TextView tvName;
         private TextView tvCall;
+        public  TextView tvVideo;
         public ViewHolder(View itemView) {
             super(itemView);
             ivAvatar = (ImageView) itemView.findViewById(R.id.ivItemrCall);
             tvName = (TextView) itemView.findViewById(R.id.tvNameItemCall);
             tvCall = (TextView) itemView.findViewById(R.id.tvItemCall);
+            tvVideo = (TextView) itemView.findViewById(R.id.tvItemVideo);
         }
     }
 
-    public interface ICall{
 
-        public void call(String idCall);
-    }
 }

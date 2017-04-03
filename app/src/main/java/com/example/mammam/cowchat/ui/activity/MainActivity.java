@@ -10,9 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
@@ -21,11 +24,14 @@ import com.example.mammam.cowchat.controll.ManagerDbLocal;
 import com.example.mammam.cowchat.controll.ManagerUser;
 import com.example.mammam.cowchat.models.IConstand;
 import com.example.mammam.cowchat.models.UserLocal;
+import com.example.mammam.cowchat.service.ChatService;
 import com.example.mammam.cowchat.service.ServiceCall;
+import com.example.mammam.cowchat.service.VideoCall;
 import com.example.mammam.cowchat.ui.adapter.ViewPagerAdapter;
 import com.example.mammam.cowchat.ui.asset.MrgTypeFace;
 
 import com.example.mammam.cowchat.ui.fragm.CallFragment;
+import com.example.mammam.cowchat.ui.fragm.DrawFragment;
 import com.example.mammam.cowchat.ui.fragm.FriendFragment;
 import com.example.mammam.cowchat.ui.fragm.GroupChatFragment;
 import com.example.mammam.cowchat.ui.fragm.OnlineFragment;
@@ -54,8 +60,25 @@ public class MainActivity extends BaseActivity implements IConstand, View.OnClic
     @Override
     protected void initComponents() {
         startService(new Intent(this, ServiceCall.class));
+        startService(new Intent(this, ChatService.class));
+        startService(new Intent(this, VideoCall.class));
         pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         addFragment();
+        saveDataDraw();
+    }
+
+    private void saveDataDraw(){
+
+        SharedPreferences sharedPreferences =
+                getSharedPreferences(DRAW,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(KEY_DEFAULT_WIDTH_PEN_DRAW,DEFAULT_WIDTH_PEN_DRAW);
+        editor.putString(KEY_DEFAULE_COLOR_PEN,DEFAULE_COLOR_PEN);
+        editor.putString(KEY__DEFAULT_COLOR_BG_DRAW,DEFAULT_COLOR_BG_DRAW);
+        editor.commit();
+
+
+
     }
     private void addFragment(){
         pagerAdapter.addFragment(new FriendFragment());
@@ -91,12 +114,17 @@ public class MainActivity extends BaseActivity implements IConstand, View.OnClic
         tvSearch.setText("\uf002");
 
         tabHead = (TabLayout) findViewById(R.id.tabHead);
+
+
+
         vpgMain = (ViewPager) findViewById(R.id.vpgMain);
+        vpgMain.setOffscreenPageLimit(1);
         vpgMain.setAdapter(pagerAdapter);
         vpgMain.setPageTransformer(true,new CubeOutTransformer());
         tabHead.setupWithViewPager(vpgMain);
         pagerAdapter.notifyDataSetChanged();
         createTabIcon();
+
 
 
 
@@ -137,10 +165,12 @@ public class MainActivity extends BaseActivity implements IConstand, View.OnClic
         tvSignoutDl.setOnClickListener(this);
 
     }
-    public void nextConvesation(String roomId,String link){
+    public void nextConvesation(String roomId,String link,String name){
         Intent intent = new Intent(this,ConsersationActivity.class);
         intent.putExtra(ROOM_ID,roomId);
         intent.putExtra(LINK_AVATAR,link);
+        intent.putExtra("NAME",name);
+
         startActivity(intent);
     }
 
@@ -164,19 +194,7 @@ public class MainActivity extends BaseActivity implements IConstand, View.OnClic
                 break;
             case R.id.tvSearchMain:
                 startActivity(new Intent(this,SearchActivity.class));
-//                 dialog.show();
-//                dialog.getWindow().setGravity(Gravity.TOP|Gravity.RIGHT);
 
-//                WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
-//                layoutParams.x = 0; // right margin
-//                layoutParams.y = ; // top margin
-//                dialog.getWindow().setAttributes(layoutParams);
-                // e.g. bottom + left margins:
-//                dialog.getWindow().setGravity(Gravity.BOTTOM|Gravity.LEFT);
-//                WindowManager.LayoutParams layoutParams = dialog.getWindow().getAttributes();
-//                layoutParams.x = 100; // left margin
-//                layoutParams.y = 170; // bottom margin
-//                dialog.getWindow().setAttributes(layoutParams);
                 break;
             case R.id.tvSignOutDL:
                 ManagerUser managerUser = new ManagerUser(this);
@@ -184,6 +202,9 @@ public class MainActivity extends BaseActivity implements IConstand, View.OnClic
                 (new ManagerUser(this)).signOut();
                 clearSharedPrefrence(this);
                 startActivity(new Intent(this,LoginActivity.class));
+                stopService(new Intent(this,VideoCall.class));
+                stopService(new Intent(this,ChatService.class));
+                stopService(new Intent(this,ServiceCall.class));
                 break;
             default:
                 break;

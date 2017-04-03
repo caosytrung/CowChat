@@ -10,7 +10,9 @@ import android.widget.Toast;
 import com.example.mammam.cowchat.controll.ManagerUser;
 import com.example.mammam.cowchat.models.IConstand;
 import com.example.mammam.cowchat.models.UserLocal;
+import com.example.mammam.cowchat.service.ChatService;
 import com.example.mammam.cowchat.service.ServiceCall;
+import com.example.mammam.cowchat.service.VideoCall;
 import com.example.mammam.cowchat.ui.activity.StartActivity;
 import com.example.mammam.cowchat.ui.interf.ILogin;
 
@@ -40,6 +42,10 @@ public class MyBroadCast extends BroadcastReceiver implements IConstand {
                                     //start service
                                     Intent intentService = new Intent(context, ServiceCall.class);
                                     context.startService(intentService);
+                                    Intent intentVideo = new Intent(context, VideoCall.class);
+                                    context.startService(intentVideo);
+
+                                    context.startService(new Intent(context, ChatService.class));
                                 }
                             }
                         });
@@ -50,6 +56,9 @@ public class MyBroadCast extends BroadcastReceiver implements IConstand {
                 else {
                     // stop service
                     context.stopService(new Intent(context,ServiceCall.class));
+                    context.stopService(new Intent(context,ChatService.class));
+                    context.stopService(new Intent(context,VideoCall.class));
+
                     Toast.makeText(context,"Thoat",Toast.LENGTH_LONG).show();
                 }
 

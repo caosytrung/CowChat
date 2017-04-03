@@ -59,8 +59,9 @@ public class ManagerStorage  implements IConstand{
 
     }
 
-    public void saveImageSms(Bitmap bitmap,Uri uri){
-        StorageReference child = mStorageReference.child(IMAGE_SMS).child(uri.getLastPathSegment());
+    public void saveImageSms(Bitmap bitmap){
+        long ml = System.currentTimeMillis();
+        StorageReference child = mStorageReference.child(IMAGE_SMS).child(ml + "");
         Bitmap newBitmap = scaleDown(bitmap,(128  * 4),true);
         byte[] bytes = convertToBytes(newBitmap);
         child.putBytes(bytes).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -71,6 +72,8 @@ public class ManagerStorage  implements IConstand{
             }
         });
     }
+
+
 
     public void saveImageRoom(Bitmap bitmap,Uri uri){
         StorageReference child = mStorageReference.child(IMAGE_ROOM).child(uri.getLastPathSegment());
